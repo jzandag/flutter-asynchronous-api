@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_asynchronous_api/screens/main_screen.dart';
+import 'package:flutter_asynchronous_api/shared/constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,10 +15,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
         appBarTheme: const AppBarTheme(
-          color: Color(0xffe0bbe4),
+          color: Constants.mainColor,
           elevation: 0,
           centerTitle: true,
         ),
+        backgroundColor: Colors.white,
       ),
       home: const MainScreen(),
     );
