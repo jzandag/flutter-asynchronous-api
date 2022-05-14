@@ -10,34 +10,40 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Asynchronous API"),
-        centerTitle: true,
       ),
       body: Column(
         children: [
           Card(
-            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-            child: ListTile(
-              title: const Text('1'),
-              trailing: const Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SongSuggestion()),
-                );
-              },
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListTile(
+                title: const Text('Song List Recommendations'),
+                trailing: const Icon(Icons.arrow_forward_ios),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SongSuggestion()),
+                  );
+                },
+              ),
             ),
           ),
           Card(
-            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-            child: ListTile(
-              title: const Text('2'),
-              trailing: const Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SearchSong()),
-                );
-              },
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListTile(
+                title: const Text('Search Song'),
+                trailing: const Icon(Icons.arrow_forward_ios),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SearchSong()),
+                  );
+                },
+              ),
             ),
           ),
         ],
