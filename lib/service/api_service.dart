@@ -9,18 +9,10 @@ class ApiService {
     try {
       final response = await get(
         Uri.parse(
-            'https://shazam.p.rapidapi.com/songs/list-recommendationss?key=${ApiHelper.songKey}'),
+            'https://shazam.p.rapidapi.com/songs/list-recommendations?key=${ApiHelper.songKey}'),
         headers: ApiHelper.headers,
       );
       var jsonData = jsonDecode(response.body)['tracks'] as List;
-      // for (var item in jsonData) {
-      //   Song song = Song(
-      //     item['title'],
-      //     item['subtitle'],
-      //     item['images']['background'] ?? '',
-      //   );
-      //   print(song);
-      // }
       List<Song>? songs = jsonData
           .map<Song>((data) => Song(
                 data['title'],
@@ -31,7 +23,27 @@ class ApiService {
 
       return songs;
     } catch (e) {
-      print(e);
+      return null;
+    }
+  }
+
+  Future<List<Song>?> searchSong(String term) async {
+    try {
+      final response = await get(
+        Uri.parse('https://shazam.p.rapidapi.com/search?term=$term'),
+        headers: ApiHelper.headers,
+      );
+      var jsonData = jsonDecode(response.body)['tracks']['hits'] as List;
+      List<Song>? songs = jsonData
+          .map<Song>((data) => Song(
+                data['track']['title'],
+                data['track']['subtitle'],
+                data['track']['images']['background'] ?? '',
+              ))
+          .toList();
+
+      return songs;
+    } catch (e) {
       return null;
     }
   }

@@ -40,7 +40,7 @@ class MainScreen extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SearchSong()),
+                    MaterialPageRoute(builder: (context) => SearchSong()),
                   );
                 },
               ),

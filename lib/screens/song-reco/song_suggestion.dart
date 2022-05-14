@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_asynchronous_api/screens/search-song/song_tile.dart';
+import 'package:flutter_asynchronous_api/screens/song_tile.dart';
 import 'package:flutter_asynchronous_api/service/api_service.dart';
 import 'package:flutter_asynchronous_api/shared/constants.dart';
 import 'package:flutter_asynchronous_api/shared/error.dart';
 import 'package:flutter_asynchronous_api/shared/loading.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../model/song.dart';
 
-class SongSuggestion extends StatelessWidget {
+class SongSuggestion extends HookWidget {
   const SongSuggestion({Key? key}) : super(key: key);
 
   @override
