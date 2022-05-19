@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_asynchronous_api/model/song.dart';
 import 'package:flutter_asynchronous_api/screens/song_tile.dart';
@@ -44,7 +43,7 @@ class SearchSong extends HookWidget {
             children: [
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.only(left: 12, bottom: 11),
+                  margin: const EdgeInsets.only(left: 12, bottom: 11),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24),
                       color: Colors.white),
@@ -78,11 +77,19 @@ class SearchSong extends HookWidget {
         stream: stream,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.data == null) {
-            return const Text('Enter from search field');
+            return const Center(
+                child: Text(
+              'Enter from search field',
+              style: Constants.centerTextStyle,
+            ));
           } else if (snapshot.data == 'waiting') {
             return const Loading();
           } else if (snapshot.data == 'empty') {
-            return const Text('Empty results');
+            return const Center(
+                child: Text(
+              'Empty results',
+              style: Constants.centerTextStyle,
+            ));
           }
           return ListView.builder(
             shrinkWrap: true,

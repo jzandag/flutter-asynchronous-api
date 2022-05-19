@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Constants {
@@ -10,4 +9,5 @@ class Constants {
     contentPadding: EdgeInsets.all(12),
     border: InputBorder.none,
   );
+  static const centerTextStyle = TextStyle(fontSize: 22);
 }
